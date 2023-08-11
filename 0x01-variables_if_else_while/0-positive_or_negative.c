@@ -1,12 +1,13 @@
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
+#include <time.h>
 /**
  * main - Entry point
- * Description: Program to print whether the number is positive, negative, or zero
+ *
+ * Description: Program to print whether number is positive, negative, or zero
  * Return: 0 (Success)
- */
-int main(void) 
+*/
+int main(void)
 {
 int n;
 srand(time(0));
