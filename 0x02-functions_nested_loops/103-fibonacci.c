@@ -1,11 +1,13 @@
 #include <stdio.h>
 
 /*
- * main - Entry point for the program
+ * main - Calculate and print the sum of even Fibonacci numbers less than 4000000
+ * 
+ * The function initializes variables to represent the Fibonacci sequence and
+ * iterates through the sequence, summing even values until the next term exceeds
+ * 4000000. The sum of even terms is then printed to the console.
  *
- * Description: Calculate the sum of even Fibonacci numbers less than 4000000
- *
- * Return: 0 if successful
+ * Return: 0 if successful, non-zero otherwise
  */
 int main(void)
 {
