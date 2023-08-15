@@ -10,7 +10,8 @@
 int main(void)
 {
 	int i;
-	unsigned long int a = 1, b = 2, next, a1, a2, b1, b2;
+	unsigned long int a = 1, b = 2, next;
+	unsigned long int a1, a2, b1, b2;
 
 	printf("%lu, %lu", a, b); /* Print first two numbers */
 
@@ -33,8 +34,8 @@ int main(void)
 		{
 			a1 = b1;
 			a2 = b2;
-			b1 += a1;
-			b2 += a2;
+			b1 = a1 + b1;
+			b2 = a2 + b2;
 			if (b2 > 9999999999) /* Handling carry */
 			{
 				b2 -= 10000000000;
@@ -45,7 +46,8 @@ int main(void)
 		if (i > 92)
 		{
 			printf(", %lu", b1);
-			if (b2 < 1000000000) printf("0"); /* To handle missing zeros */
+			if (b2 < 1000000000)
+				printf("0"); /* To handle missing zeros */
 			printf("%lu", b2);
 		}
 		else
@@ -55,5 +57,5 @@ int main(void)
 	}
 
 	printf("\n");
-	return (0);
+	return 0;
 }
