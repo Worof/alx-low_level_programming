@@ -24,27 +24,33 @@ int main(void)
 		}
 		else if (i == 93)
 		{
-			a1 = a / 10000000000; /* Splitting large numbers into parts */
+			a1 = a / 10000000000;
 			a2 = a % 10000000000;
 			b1 = b / 10000000000;
 			b2 = b % 10000000000;
-
-			printf(", %lu%lu", b1, b2);
 		}
 		else /* Handling numbers larger than unsigned long int can hold */
 		{
-			a1 += b1;
-			a2 += b2;
-			if (a2 > 9999999999) /* Handling carry */
+			a1 = b1;
+			a2 = b2;
+			b1 += a1;
+			b2 += a2;
+			if (b2 > 9999999999) /* Handling carry */
 			{
-				a2 -= 10000000000;
-				a1++;
+				b2 -= 10000000000;
+				b1++;
 			}
+		}
 
-			printf(", %lu%lu", a1, a2);
-
-			b1 = a1;
-			b2 = a2;
+		if (i > 92)
+		{
+			printf(", %lu", b1);
+			if (b2 < 1000000000) printf("0"); /* To handle missing zeros */
+			printf("%lu", b2);
+		}
+		else
+		{
+			printf(", %lu", next);
 		}
 	}
 
