@@ -1,11 +1,10 @@
-#include "main.h"
 #include <stdio.h>
 
 /**
- * print_times_table - prints the n times table, starting with 0.
- * @n: The value of the times table to print.
+ * print_times_table - Print the n times table up to 15.
+ * @n: the table to print.
  *
- * Return: Nothing.
+ * Return: None.
  */
 void print_times_table(int n)
 {
@@ -19,17 +18,18 @@ void print_times_table(int n)
         for (j = 0; j <= n; j++)
         {
             product = i * j;
+
             if (j != 0)
             {
-                printf(" ");
                 if (product < 10)
-                    printf("  ");
+                    printf("   ");  /* Three spaces for a single digit */
                 else if (product < 100)
-                    printf(" ");
+                    printf("  ");   /* Two spaces for two digits */
             }
             printf("%d", product);
+
             if (j != n)
-                printf(", ");
+                printf(", ");      /* Print comma and space */
         }
         printf("\n");
     }
