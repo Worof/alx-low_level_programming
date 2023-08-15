@@ -22,9 +22,9 @@ void print_times_table(int n)
             if (j != 0)
             {
                 if (product < 10)
-                    printf("   ");  /* Three spaces for a single digit */
+                    printf("  ");  /* Three spaces for a single digit */
                 else if (product < 100)
-                    printf("  ");   /* Two spaces for two digits */
+                    printf(" ");   /* Two spaces for two digits */
             }
             printf("%d", product);
 
