@@ -1,0 +1,33 @@
+# Compiler
+CC=gcc
+
+# Source files
+SRC=main.c school.c
+
+# Object files
+OBJ=$(SRC:.c=.o)
+
+# Executable name
+NAME=school
+
+# The all rule
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+%.o: %.c
+	$(CC) -c $< -o $@
+
+# Clean objects
+clean:
+	rm -f $(OBJ)
+
+# Clean objects and executable
+fclean: clean
+	rm -f $(NAME)
+
+# Rebuild the executable
+re: fclean all
+
+.PHONY: all clean fclean re
