@@ -1,26 +1,25 @@
-#compiler
 CC := gcc
-#source files
-SRC := school.c main.c
-#object files
-OBJ := $(SRC: .c =.o)
-#execution name
+SRC := main.c school.c
+OBJ := $(SRC:.c=.o)
 NAME := school
-#remove command
 RM := rm -f
-#default 
+
 all: $(NAME)
-#compilation 
-$(NAME) : $(OBJ)
+
+$(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
-#rules
+
 %.o: %.c
 	$(CC) -c $< -o $@
-#deletion
+
 clean:
 	$(RM) *~ $(NAME)
+
 oclean:
 	$(RM) $(OBJ)
+
 fclean: clean oclean
-# Prevent make from processing files with these names as targets
+
+re: fclean all
+
 .PHONY: all clean oclean fclean re
