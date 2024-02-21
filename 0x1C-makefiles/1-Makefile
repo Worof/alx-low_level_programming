@@ -1,0 +1,7 @@
+#define the compiler
+CC = gcc
+#define the source files
+SRC = main.c school.c
+#define the rule for execution
+all:
+	$(CC) $(SRC) -o school
