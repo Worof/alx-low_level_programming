@@ -1,0 +1,39 @@
+# Compiler and flags
+CC := gcc
+CFLAGS := -Wall -Werror -Wextra -pedantic
+
+# Source files and objects
+SRC := main.c school.c
+OBJ := $(SRC:.c=.o)
+
+# Executable name
+NAME := school
+
+# 'rm' command is restricted from being assigned to RM variable directly
+# and is used implicitly in the cleaning rules
+
+# Default rule
+all: $(NAME)
+
+# Compiles the executable without directly specifying object file rules
+# Uses implicit rules for compiling .c to .o files with conditions to enforce CFLAGS indirectly
+$(NAME): $(SRC) m.h
+	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+
+# Cleans Emacs and Vim temporary files and the executable
+clean:
+	/bin/rm -f *~ $(NAME)
+
+# Cleans object files indirectly by forcing a recompile
+oclean:
+	touch $(SRC)
+
+# Combines 'clean' and 'oclean'
+fclean: clean
+	/bin/rm -f $(OBJ)
+
+# Forces a complete rebuild
+re: fclean all
+
+# Ensures the cleaning rules never fail
+.PHONY: all clean fclean oclean re
