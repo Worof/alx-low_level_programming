@@ -10,5 +10,7 @@ int binary_search(int *array, size_t size, int value);
 void print_array(const int *array, size_t size);
 int jump_search(int *array, size_t size, int value);
 int interpolation_search(int *array, size_t size, int value);
+int exponential_search(int *array, size_t size, int value);
+int binary_search_printed(int *array, size_t left, size_t right, int value);
 
 #endif /* SEARCH_ALGOS_H */
